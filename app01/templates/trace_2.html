@@ -1,0 +1,1191 @@
+{% extends "new_layout_2.html" %}
+{% load static %}
+{% block css %}
+
+    <link href="../static/css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
+    <link href="../static/font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
+
+    <!-- Data Tables -->
+    <link href="../static/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+    <link href="../static/css/animate.css" rel="stylesheet">
+    <link href="../static/css/style.css?v=2.2.0" rel="stylesheet">
+
+{% endblock %}
+{##}
+{% block content %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>超话追踪</h2>
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>此话题——"趋势追踪"</h3></div>
+                    <div class="panel-body">
+                        <div class="panel-heading">
+                            <div class="panel-options">
+                                <ul class="nav nav-tabs">
+                                    <li><a data-toggle="tab" href="trace.html#t1">两会</a>
+                                    </li>
+                                    <li class=""><a data-toggle="tab" href="trace.html#t2">土耳其</a>
+                                    </li>
+                                    <li class=""><a data-toggle="tab" href="trace.html#t3">二十大</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="tab-content">
+                                <div id="t1" class="tab-pane active">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div>
+                                                <div>
+                                                    <div style="width:100%;">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h1 class="panel-title">
+                                                                    <img src='../static/img_new/title.png'
+                                                                         style="width:40px;height:40px">
+                                                                    <span style="font-size:22px">&nbsp&nbsp&nbsp#两会#</span>
+{#                                                                    <span style="font-size:22px;float:right;margin-top:8px;">话题热度：&nbsp&nbsp&nbsp</span>#}
+                                                                </h1>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <hr>
+                                                                <p>
+                                                                    <span style="font-size:20px;color:#939393">·&nbsp分类&nbsp:&nbsp&nbsp&nbsp</span>
+                                                                    <span style="font-size:18px">社会 </span>
+                                                                </p>
+                                                                <hr>
+                                                                <p>
+                                                                    <span style="font-size:20px;color:#939393">·&nbsp导语&nbsp:&nbsp&nbsp&nbsp</span>
+                                                                    <span style="font-size:18px">2023年3月，十四届全国人大一次会议和全国政协十四届一次会议在北京召开。</span>
+                                                                </p>
+                                                                <hr>
+                                                                <p>
+                                                                    <span style="font-size:20px;color:#939393">·&nbsp&nbsp主持人:&nbsp&nbsp&nbsp</span>
+                                                                    <span style="font-size:18px">央视新闻 </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h3 class="panel-title">
+                                                                    <img src='../static/img_new/statis.png'
+                                                                         style="width:40px;height:40px">
+                                                                    <span style="font-size:22px"> &nbsp&nbsp&nbsp话题总览</span>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <div class="data-row">
+                                                                    <div class="col-lg-4">
+                                                                        <div class="num">
+                                                                        <span class="scale">
+                                                                            <p style="font-size:23px;text-align: center;">184.7亿</p>
+                                                                           <p style="font-size:15px;color:#939393;text-align: center;">&nbsp&nbsp阅读数量</p>
+                                                                        </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <div class="num">
+                                                                        <span class="scale">
+                                                                            <p style="font-size:23px;text-align: center;"> 621.3万</p>
+                                                                           <p style="font-size:15px;color:#939393;text-align: center;">&nbsp&nbsp讨论数量</p>
+                                                                        </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <div class="num">
+                                                                        <span class="scale">
+                                                                            <p style="font-size:23px;text-align: center;">  58.2万</p>
+                                                                           <p style="font-size:15px;color:#939393;text-align: center;">&nbsp原创人数</p>
+                                                                        </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading"><h3>"话题趋势"</h3></div>
+                                                            <div class="panel-body">
+                                                                <div id="两会main1"
+                                                                     style="width:100%;height: 400px"></div>
+                                                                <div id="两会main2"
+                                                                     style="width:100%;height: 400px"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="t2" class="tab-pane ">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div>
+                                                <div>
+                                                    <div style="width:100%;">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h1 class="panel-title">
+                                                                    <img src='../static/img_new/title.png'
+                                                                         style="width:40px;height:40px">
+                                                                    <span style="font-size:22px">&nbsp&nbsp&nbsp#土耳其#</span>
+{#                                                                    <span style="font-size:22px;float:right;margin-top:8px;">话题热度：8.8&nbsp&nbsp&nbsp</span>#}
+                                                                </h1>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <hr>
+                                                                <p>
+                                                                    <span style="font-size:20px;color:#939393">·&nbsp分类&nbsp:&nbsp&nbsp&nbsp</span>
+                                                                    <span style="font-size:18px">社会 </span>
+                                                                </p>
+                                                                <hr>
+                                                                <p>
+                                                                    <span style="font-size:20px;color:#939393">·&nbsp导语&nbsp:&nbsp&nbsp&nbsp</span>
+                                                                    <span style="font-size:18px">2023年2月21日1时4分（当地时间2023年2月20日20时4分），在土耳其发生6.3级地震，震源深度10公里，震中位于北纬36.10度，东经36.05度。</span>
+                                                                </p>
+                                                                <hr>
+                                                                <p>
+                                                                    <span style="font-size:20px;color:#939393">·&nbsp&nbsp主持人:&nbsp&nbsp&nbsp</span>
+                                                                    <span style="font-size:18px">暂无 </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h3 class="panel-title">
+                                                                    <img src='../static/img_new/statis.png'
+                                                                         style="width:40px;height:40px">
+                                                                    <span style="font-size:22px"> &nbsp&nbsp&nbsp话题总览</span>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <div class="data-row">
+                                                                    <div class="col-lg-4">
+                                                                        <div class="num">
+                                                                        <span class="scale">
+                                                                            <p style="font-size:23px;text-align: center;">1.2亿</p>
+                                                                           <p style="font-size:15px;color:#939393;text-align: center;">&nbsp&nbsp阅读数量</p>
+                                                                        </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <div class="num">
+                                                                        <span class="scale">
+                                                                            <p style="font-size:23px;text-align: center;"> 2.3万</p>
+                                                                           <p style="font-size:15px;color:#939393;text-align: center;">&nbsp&nbsp讨论数量</p>
+                                                                        </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <div class="num">
+                                                                        <span class="scale">
+                                                                            <p style="font-size:23px;text-align: center;">  4146</p>
+                                                                           <p style="font-size:15px;color:#939393;text-align: center;">&nbsp原创人数</p>
+                                                                        </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">话题趋势</div>
+                                                            <div class="panel-body">
+                                                                <div id="土耳其main1"
+                                                                     style="width:1348px;height: 400px">
+                                                                    <script type="text/javascript"
+                                                                            src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+                                                                    <script type="text/javascript">
+                                                                        var dom = document.getElementById('土耳其main1');
+                                                                        var myChart = echarts.init(dom, null, {
+                                                                            renderer: 'canvas',
+                                                                            useDirtyRect: false
+                                                                        });
+                                                                        var app = {};
+
+                                                                        var option;
+
+                                                                        option = {
+                                                                            title: {
+                                                                                text: '讨论趋势',
+                                                                                {#subtext: 'Fake Data'#}
+                                                                            },
+                                                                            tooltip: {
+                                                                                trigger: 'axis',
+                                                                                axisPointer: {
+                                                                                    type: 'cross'
+                                                                                }
+                                                                            },
+                                                                            toolbox: {
+                                                                                show: true,
+                                                                                feature: {
+                                                                                    saveAsImage: {}
+                                                                                }
+                                                                            },
+                                                                            xAxis: {
+                                                                                type: 'category',
+                                                                                boundaryGap: false,
+                                                                                // prettier-ignore
+                                                                                data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+                                                                            },
+                                                                            yAxis: {
+                                                                                type: 'value',
+                                                                                axisLabel: {
+                                                                                    formatter: '{value}'
+                                                                                },
+                                                                                axisPointer: {
+                                                                                    snap: true
+                                                                                }
+                                                                            },
+                                                                            visualMap: {
+                                                                                show: false,
+                                                                                dimension: 0,
+                                                                                pieces: [
+                                                                                    {
+                                                                                        lte: 6,
+                                                                                        color: 'LightSkyBlue'
+                                                                                    },
+                                                                                    {
+                                                                                        gt: 6,
+                                                                                        lte: 8,
+                                                                                        color: '	LightCoral'
+                                                                                    },
+                                                                                    {
+                                                                                        gt: 8,
+                                                                                        lte: 14,
+                                                                                        color: 'LightSkyBlue'
+                                                                                    },
+                                                                                    {
+                                                                                        gt: 14,
+                                                                                        lte: 17,
+                                                                                        color: '	LightCoral'
+                                                                                    },
+                                                                                    {
+                                                                                        gt: 17,
+                                                                                        color: 'LightSkyBlue'
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            series: [
+                                                                                {
+                                                                                    name: 'Electricity',
+                                                                                    type: 'line',
+                                                                                    smooth: true,
+                                                                                    // prettier-ignore
+                                                                                    data: [15, 10, 9, 9, 8, 5, 3, 3, 2, 2, 5, 7, 3, 8, 4, 2, 10, 9, 6, 3],
+                                                                                    markArea: {
+                                                                                        itemStyle: {
+                                                                                            color: 'rgba(255, 173, 177, 0.4)'
+                                                                                        },
+                                                                                        data: [
+                                                                                            [
+                                                                                                {
+                                                                                                    name: 'Morning Peak',
+                                                                                                    xAxis: '07:30'
+                                                                                                },
+                                                                                                {
+                                                                                                    xAxis: '10:00'
+                                                                                                }
+                                                                                            ],
+                                                                                            [
+                                                                                                {
+                                                                                                    name: 'Evening Peak',
+                                                                                                    xAxis: '17:30'
+                                                                                                },
+                                                                                                {
+                                                                                                    xAxis: '21:15'
+                                                                                                }
+                                                                                            ]
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        };
+                                                                        option && myChart.setOption(option);
+
+                                                                        if (option && typeof option === 'object') {
+                                                                            myChart.setOption(option);
+                                                                        }
+
+                                                                        window.addEventListener('resize', myChart.resize);
+                                                                    </script>
+                                                                </div>
+                                                                <div id="土耳其main2"
+                                                                     style="width:1348px;height: 400px"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="t3" class="tab-pane ">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div>
+                                                <div>
+                                                    <div style="width:100%;">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h1 class="panel-title">
+                                                                    <img src='../static/img_new/title.png'
+                                                                         style="width:40px;height:40px">
+                                                                    <span style="font-size:22px">&nbsp&nbsp&nbsp#二十大#</span>
+{#                                                                    <span style="font-size:22px;float:right;margin-top:8px;">话题热度：9.0&nbsp&nbsp&nbsp</span>#}
+                                                                </h1>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <hr>
+                                                                <p>
+                                                                    <span style="font-size:20px;color:#939393">·&nbsp分类&nbsp:&nbsp&nbsp&nbsp</span>
+                                                                    <span style="font-size:18px">时事</span>
+                                                                </p>
+                                                                <hr>
+                                                                <p>
+                                                                    <span style="font-size:20px;color:#939393">·&nbsp导语&nbsp:&nbsp&nbsp&nbsp</span>
+                                                                    <span style="font-size:18px">2022年10月16日，中国共产党第二十次全国代表大会在北京人民大会堂开幕。</span>
+                                                                </p>
+                                                                <hr>
+                                                                <p>
+                                                                    <span style="font-size:20px;color:#939393">·&nbsp&nbsp主持人:&nbsp&nbsp&nbsp</span>
+                                                                    <span style="font-size:18px">暂无 </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h3 class="panel-title">
+                                                                    <img src='../static/img_new/statis.png'
+                                                                         style="width:40px;height:40px">
+                                                                    <span style="font-size:22px"> &nbsp&nbsp&nbsp话题总览</span>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <div class="data-row">
+                                                                    <div class="col-lg-4">
+                                                                        <div class="num">
+                                                                        <span class="scale">
+                                                                            <p style="font-size:23px;text-align: center;">47.4亿</p>
+                                                                           <p style="font-size:15px;color:#939393;text-align: center;">&nbsp&nbsp阅读数量</p>
+                                                                        </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <div class="num">
+                                                                        <span class="scale">
+                                                                            <p style="font-size:23px;text-align: center;"> 93.8万</p>
+                                                                           <p style="font-size:15px;color:#939393;text-align: center;">&nbsp&nbsp讨论数量</p>
+                                                                        </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <div class="num">
+                                                                        <span class="scale">
+                                                                            <p style="font-size:23px;text-align: center;">  8.1万</p>
+                                                                           <p style="font-size:15px;color:#939393;text-align: center;">&nbsp原创人数</p>
+                                                                        </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">话题趋势</div>
+                                                            <div class="panel-body">
+                                                                <div id="二十大main1"
+                                                                     style="width:1348px;height: 400px"></div>
+                                                                <div id="二十大main2"
+                                                                     style="width:1348px;height: 400px"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">各类型话题——情感分析</div>
+                <div class="panel-body">
+                    <div class="panel-heading">
+                        <div class="panel-options">
+                            <ul class="nav nav-tabs">
+                                <li><a data-toggle="tab" href="trace.html#tab-11">两会</a>
+                                </li>
+                                <li class=""><a data-toggle="tab" href="trace.html#tab-12">土耳其</a>
+                                </li>
+                                <li class=""><a data-toggle="tab" href="trace.html#tab-13">二十大</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div id="tab-11" class="tab-pane active">
+                                <table class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <tr>
+                                        <th style="width:1197px">作者及评论信息</th>
+                                        <th style="width:120px">情感分析</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for obj in data_list_1 %}
+                                        <tr>
+                                        <td style="font-size:25px;">
+                                            {{ obj.author }}
+                                            <br><a
+                                                style="font-size:25px;color:#808080;text-decoration:none;">{{ obj.content }}</a><br>
+                                            <span style="font-size:17px">&nbsp&nbsp&nbsp&nbsp&nbsp转发:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.share_num }}</a>&nbsp&nbsp&nbsp评论:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.pingllun_num }}</a>&nbsp&nbsp&nbsp点赞:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.dianzan_num }}</a>&nbsp&nbsp&nbsp发帖时间:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.time }}</a></span>
+                                        </td>
+                                        <td style="width: 10%">
+                                            <a href="{{ obj.href }}">查看原文>>><br><br><a
+                                                    style="font-size:30px;color:#2E8B57;text-decoration:none;">{{ obj.key_s }}</a></a>
+                                        </td>
+                                    {% endfor %}
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="tab-12" class="tab-pane">
+                                <table class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <tr>
+                                        <th style="width:1200px">作者及评论信息</th>
+                                        <th style="width:120px">情感分析</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for obj in data_list_2 %}
+                                        <tr>
+                                        <td style="font-size:25px;">
+                                            {{ obj.author }}
+                                            <br>
+                                            <a style="font-size:25px;color:#808080;text-decoration:none;">{{ obj.content }}</a>
+                                            <br>
+                                            <span style="font-size:17px">&nbsp&nbsp&nbsp&nbsp&nbsp转发:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.share_num }}</a>&nbsp&nbsp&nbsp评论:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.pingllun_num }}</a>&nbsp&nbsp&nbsp点赞:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.dianzan_num }}
+                                            </a>&nbsp&nbsp&nbsp发帖时间:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.time }}</a></span>
+                                        </td>
+                                        <td>
+                                            <a href="{{ obj.href }}">查看原文>>><br><br><a
+                                                    style="font-size:30px;color:#2E8B57;text-decoration:none;">{{ obj.key_s }}</a></a>
+                                        </td>
+                                    {% endfor %}
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="tab-13" class="tab-pane">
+                                <table class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 1200px">作者及评论信息</th>
+                                        <th style="width:120px">情感分析</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for obj in data_list_3 %}
+                                        <tr>
+                                        <td style="font-size:25px;">
+                                            {{ obj.author }}
+                                            <br>
+                                            <a style="font-size:25px;color:#808080;text-decoration:none;">{{ obj.content }}</a>
+                                            <br>
+                                            <span style="font-size:17px">&nbsp&nbsp&nbsp&nbsp&nbsp转发:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.share_num }}</a>&nbsp&nbsp&nbsp评论:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.pingllun_num }}</a>&nbsp&nbsp&nbsp点赞:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.dianzan_num }}</a>&nbsp&nbsp&nbsp发帖时间:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.time }}</a></span>
+                                        <td>
+                                            <a href="{{ obj.href }}">查看原文>>><br><br><a
+                                                    style="font-size:30px;color:#2E8B57;text-decoration:none;">{{ obj.key_s }}</a></a>
+                                        </td>
+                                    {% endfor %}
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-12"></div>
+        <div class="footer">
+            <div>
+                <strong>面向微博超话的情感检测系统</strong>
+                <!--——————————————————————    最底下的那一行字——————————————————————————    -->
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+
+    <script src="{% static '/js/echarts-wordcloud.js' %}"></script>
+    <!-- Mainly scripts -->
+    <script src="../static/js/jquery-2.1.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js?v=3.4.0"></script>
+    <script src="../static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <script src="../static/js/plugins/jeditable/jquery.jeditable.js"></script>
+
+    <!-- Data Tables -->
+    <script src="../static/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../static/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="../static/js/hplus.js?v=2.2.0"></script>
+    <script src="../static/js/plugins/pace/pace.min.js"></script>
+
+    <!-- Page-Level Scripts -->
+    <script type="text/javascript">
+
+        {#<!---------------------------------------------------------两会图1-------------------------------------------------->#}
+        var chartDom = document.getElementById('两会main1');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            title: {
+                text: '阅读趋势',
+                {#subtext: 'Fake Data'#}
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                // prettier-ignore
+                data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisPointer: {
+                    snap: true
+                }
+            },
+            visualMap: {
+                show: false,
+                dimension: 0,
+                pieces: [
+                    {
+                        lte: 6,
+                        color: 'LightSkyBlue'
+                    },
+                    {
+                        gt: 6,
+                        lte: 8,
+                        color: '	LightCoral'
+                    },
+                    {
+                        gt: 8,
+                        lte: 14,
+                        color: 'LightSkyBlue'
+                    },
+                    {
+                        gt: 14,
+                        lte: 17,
+                        color: '	LightCoral'
+                    },
+                    {
+                        gt: 17,
+                        color: 'LightSkyBlue'
+                    }
+                ]
+            },
+            series: [
+                {
+                    name: 'Electricity',
+                    type: 'line',
+                    smooth: true,
+                    // prettier-ignore
+                    data: [4146, 3350, 3550, 34106, 72012, 2718, 2628, 2482, 3043, 2946, 3214, 8038, 4302, 3338, 3168, 3544, 2867, 3484, 3116, 3368],
+                    markArea: {
+                        itemStyle: {
+                            color: 'rgba(255, 173, 177, 0.4)'
+                        },
+                        data: [
+                            [
+                                {
+                                    name: 'Morning Peak',
+                                    xAxis: '07:30'
+                                },
+                                {
+                                    xAxis: '10:00'
+                                }
+                            ],
+                            [
+                                {
+                                    name: 'Evening Peak',
+                                    xAxis: '17:30'
+                                },
+                                {
+                                    xAxis: '21:15'
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        };
+        option && myChart.setOption(option);
+        <!---------------------------------------------------------两会图2-------------------------------------------------->
+        var chartDom = document.getElementById('两会main2');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            title: {
+                text: '讨论趋势',
+                {#subtext: 'Fake Data'#}
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                // prettier-ignore
+                data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisPointer: {
+                    snap: true
+                }
+            },
+            visualMap: {
+                show: false,
+                dimension: 0,
+                pieces: [
+                    {
+                        lte: 6,
+                        color: 'LightSkyBlue'
+                    },
+                    {
+                        gt: 6,
+                        lte: 8,
+                        color: '	LightCoral'
+                    },
+                    {
+                        gt: 8,
+                        lte: 14,
+                        color: 'LightSkyBlue'
+                    },
+                    {
+                        gt: 14,
+                        lte: 17,
+                        color: '	LightCoral'
+                    },
+                    {
+                        gt: 17,
+                        color: 'LightSkyBlue'
+                    }
+                ]
+            },
+            series: [
+                {
+                    name: 'Electricity',
+                    type: 'line',
+                    smooth: true,
+                    // prettier-ignore
+                    data: [22, 14, 0, 2, 5, 7, 7, 15, 19, 16, 32, 27, 19, 21, 22, 26, 17, 30, 16, 21],
+                    markArea: {
+                        itemStyle: {
+                            color: 'rgba(255, 173, 177, 0.4)'
+                        },
+                        data: [
+                            [
+                                {
+                                    name: 'Morning Peak',
+                                    xAxis: '07:30'
+                                },
+                                {
+                                    xAxis: '10:00'
+                                }
+                            ],
+                            [
+                                {
+                                    name: 'Evening Peak',
+                                    xAxis: '17:30'
+                                },
+                                {
+                                    xAxis: '21:15'
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        };
+        option && myChart.setOption(option);
+        <!---------------------------------------------------------土耳其图1-------------------------------------------------->
+
+        <!---------------------------------------------------------土耳其图2-------------------------------------------------->
+        var chartDom = document.getElementById('土耳其main2');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            title: {
+                text: '讨论趋势',
+                {#subtext: 'Fake Data'#}
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                // prettier-ignore
+                data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisPointer: {
+                    snap: true
+                }
+            },
+            visualMap: {
+                show: false,
+                dimension: 0,
+                pieces: [
+                    {
+                        lte: 6,
+                        color: 'LightSkyBlue'
+                    },
+                    {
+                        gt: 6,
+                        lte: 8,
+                        color: '	LightCoral'
+                    },
+                    {
+                        gt: 8,
+                        lte: 14,
+                        color: 'LightSkyBlue'
+                    },
+                    {
+                        gt: 14,
+                        lte: 17,
+                        color: '	LightCoral'
+                    },
+                    {
+                        gt: 17,
+                        color: 'LightSkyBlue'
+                    }
+                ]
+            },
+            series: [
+                {
+                    name: 'Electricity',
+                    type: 'line',
+                    smooth: true,
+                    // prettier-ignore
+                    data: [10, 5, 4, 1, 3, 3, 7, 10, 13, 15, 13, 19, 15, 12, 18, 22, 12, 17, 13, 16],
+                    markArea: {
+                        itemStyle: {
+                            color: 'rgba(255, 173, 177, 0.4)'
+                        },
+                        data: [
+                            [
+                                {
+                                    name: 'Morning Peak',
+                                    xAxis: '07:30'
+                                },
+                                {
+                                    xAxis: '10:00'
+                                }
+                            ],
+                            [
+                                {
+                                    name: 'Evening Peak',
+                                    xAxis: '17:30'
+                                },
+                                {
+                                    xAxis: '21:15'
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        };
+        option && myChart.setOption(option);
+        <!---------------------------------------------------------二十大图1-------------------------------------------------->
+        var chartDom = document.getElementById('二十大main1');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            title: {
+                text: '阅读趋势',
+                {#subtext: 'Fake Data'#}
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                // prettier-ignore
+                data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisPointer: {
+                    snap: true
+                }
+            },
+            visualMap: {
+                show: false,
+                dimension: 0,
+                pieces: [
+                    {
+                        lte: 6,
+                        color: 'LightSkyBlue'
+                    },
+                    {
+                        gt: 6,
+                        lte: 8,
+                        color: '	LightCoral'
+                    },
+                    {
+                        gt: 8,
+                        lte: 14,
+                        color: 'LightSkyBlue'
+                    },
+                    {
+                        gt: 14,
+                        lte: 17,
+                        color: '	LightCoral'
+                    },
+                    {
+                        gt: 17,
+                        color: 'LightSkyBlue'
+                    }
+                ]
+            },
+            series: [
+                {
+                    name: 'Electricity',
+                    type: 'line',
+                    smooth: true,
+                    // prettier-ignore
+                    data: [668, 386, 278, 336, 400, 348, 308, 936, 806, 560, 716, 868, 504, 446, 1344, 840, 1003, 964, 860, 642],
+                    markArea: {
+                        itemStyle: {
+                            color: 'rgba(255, 173, 177, 0.4)'
+                        },
+                        data: [
+                            [
+                                {
+                                    name: 'Morning Peak',
+                                    xAxis: '07:30'
+                                },
+                                {
+                                    xAxis: '10:00'
+                                }
+                            ],
+                            [
+                                {
+                                    name: 'Evening Peak',
+                                    xAxis: '17:30'
+                                },
+                                {
+                                    xAxis: '21:15'
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        };
+        option && myChart.setOption(option);
+        <!---------------------------------------------------------二十大图2-------------------------------------------------->
+        var chartDom = document.getElementById('二十大main2');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            title: {
+                text: '讨论趋势',
+                {#subtext: 'Fake Data'#}
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                // prettier-ignore
+                data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisPointer: {
+                    snap: true
+                }
+            },
+            visualMap: {
+                show: false,
+                dimension: 0,
+                pieces: [
+                    {
+                        lte: 6,
+                        color: 'LightSkyBlue'
+                    },
+                    {
+                        gt: 6,
+                        lte: 8,
+                        color: '	LightCoral'
+                    },
+                    {
+                        gt: 8,
+                        lte: 14,
+                        color: 'LightSkyBlue'
+                    },
+                    {
+                        gt: 14,
+                        lte: 17,
+                        color: '	LightCoral'
+                    },
+                    {
+                        gt: 17,
+                        color: 'LightSkyBlue'
+                    }
+                ]
+            },
+            series: [
+                {
+                    name: 'Electricity',
+                    type: 'line',
+                    smooth: true,
+                    // prettier-ignore
+                    data: [15, 10, 9, 9, 8, 5, 3, 3, 2, 2, 5, 7, 3, 8, 4, 2, 10, 9, 6, 3],
+                    markArea: {
+                        itemStyle: {
+                            color: 'rgba(255, 173, 177, 0.4)'
+                        },
+                        data: [
+                            [
+                                {
+                                    name: 'Morning Peak',
+                                    xAxis: '07:30'
+                                },
+                                {
+                                    xAxis: '10:00'
+                                }
+                            ],
+                            [
+                                {
+                                    name: 'Evening Peak',
+                                    xAxis: '17:30'
+                                },
+                                {
+                                    xAxis: '21:15'
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        };
+        option && myChart.setOption(option);
+    </script>
+    {#------------------------------------main1,main2原来的图，与置顶话题热度对比，---该话题信息以及趋势展示------------------------------------------------------------------#}
+    <script>
+        $(document).ready(function () {
+            $('.dataTables-example').dataTable();
+
+            /* Init DataTables */
+            var oTable = $('#editable').dataTable();
+
+            /* Apply the jEditable handlers to the table */
+            oTable.$('td').editable('../example_ajax.php', {
+                "callback": function (sValue, y) {
+                    var aPos = oTable.fnGetPosition(this);
+                    oTable.fnUpdate(sValue, aPos[0], aPos[1]);
+                },
+                "submitdata": function (value, settings) {
+                    return {
+                        "row_id": this.parentNode.getAttribute('id'),
+                        "column": oTable.fnGetPosition(this)[2]
+                    };
+                },
+
+                "width": "90%",
+                "height": "100%"
+            });
+
+
+        });
+
+        function fnClickAddRow() {
+            $('#editable').dataTable().fnAddData([
+                "Custom row",
+                "New row",
+                "New row",
+                "New row",
+                "New row"]);
+
+        }
+    </script>
+
+
+    <script>
+        var chartDom = document.getElementById('main1');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title: {
+                text: ''
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['两会', '土耳其', '二十大']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['4.1', '4.2', '4.3', '4.4', '4.5', '4.6', '4.7']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '两会',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [1235, 3132, 3234, 3134, 2190, 2230, 2910]
+                },
+                {
+                    name: '土耳其',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [2220, 2102, 2191, 2934, 2290, 2130, 2310]
+                },
+                {
+                    name: '二十大',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [1150, 1232, 2201, 2154, 3190, 3330, 2410]
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);    </script>
+    {#-------------------------------三个话题的饼图和折线图-------------------------------------------------------#}
+
+    <script>
+        $(document).ready(function () {
+            <!-- Enable portlets -->
+            WinMove();
+        });
+    </script>
+
+{% endblock %}

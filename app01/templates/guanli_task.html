@@ -1,0 +1,175 @@
+{% extends 'new_layout_2.html' %}
+{% load static %}
+{% block css %}
+    <link href="../static/css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
+    <link href="../static/font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
+
+    <link href="../static/css/animate.css" rel="stylesheet">
+    <link href="../static/css/style.css?v=2.2.0" rel="stylesheet">
+{% endblock %}
+{% block content %}
+
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>管理任务</h2>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="ibox-content">
+            <div class="row m-b-sm m-t-sm">
+                <div class="col-md-1">
+                    <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i
+                            class="fa fa-refresh"></i> 刷新
+                    </button>
+                </div>
+                <div class="col-md-11">
+                    <div class="input-group">
+                        <input type="text" placeholder="请输入项目名称" class="input-sm form-control"> <span
+                            class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-list">
+
+                <table class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <td class="project-status col-md-1">
+                                                    <span class="label label-primary">话题榜
+                                        </span></td>
+                        <td class="project-title col-md-3">
+                            <a href="project_detail.html">#为什么癌症一发现就是晚期#</a>
+                            <br>
+                            <!--                        <small>创建于 2014.08.15</small>-->
+                        </td>
+                        <td class="project-completion col-md-3">
+                            <small>当前阅读：3.5亿 讨论：2.6万</small>
+                        </td>
+                        <td class="project-actions col-md-2">
+                            <div class="progress progress-mini">
+                                <div style="width: 88%;" class="progress-bar"></div>
+                            </div>
+                        </td>
+                        <td class="project-people col-md-3">
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-times"></i> 删除 </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="project-status">
+                                            <span class="label label-primary">热搜榜
+                                        </span></td>
+                        <td class="project-title">
+                            <a href="project_detail.html">#海南启动全岛封关运作准备#</a>
+                            <br>
+                            <!--                        <small>创建于 2014.08.15</small>-->
+                        </td>
+                        <td class="project-completion">
+                            <small>今日阅读：1.6亿 讨论：4242</small>
+                        </td>
+                        <td class="project-people">
+                            <div class="progress progress-mini">
+                                <div style="width: 76%;" class="progress-bar"></div>
+                            </div>
+                        </td>
+                        <td class="project-actions">
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-times"></i> 删除 </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="project-status">
+                                            <span class="label label-primary">置顶榜
+                                        </span></td>
+                        <td class="project-title">
+                            <a href="project_detail.html">#第十届中国网络视听大会#</a>
+                            <br>
+                        </td>
+                        <td class="project-completion">
+                            <small>今日阅读：6874.8万 讨论：1563</small>
+                        </td>
+                        <td class="project-people">
+                            <div class="progress progress-mini">
+                                <div style="width: 53%;" class="progress-bar"></div>
+                            </div>
+                        </td>
+                        <td class="project-actions">
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-times"></i> 删除 </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="project-status">
+                                            <span class="label label-primary">要闻榜
+                                        </span></td>
+                        <td class="project-title">
+                            <a href="project_detail.html">#我国发射4颗卫星在太空轮状飞行#</a>
+                            <br>
+                        </td>
+                        <td class="project-completion">
+                            <small>今日阅读688.2万 讨论598</small>
+                        </td>
+                        <td class="project-people">
+                            <div class="progress progress-mini">
+                                <div style="width: 50%;" class="progress-bar"></div>
+                            </div>
+                        </td>
+                        <td class="project-actions">
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
+                            <a href="projects.html#" class="btn btn-white btn-sm"><i class="fa fa-times"></i> 删除 </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <!-- Mainly scripts -->
+    <script src="../static/js/jquery-2.1.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js?v=3.4.0"></script>
+    <script src="../static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="../static/js/hplus.js?v=2.2.0"></script>
+    <script src="../static/js/plugins/pace/pace.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#loading-example-btn').click(function () {
+                btn = $(this);
+                simpleLoad(btn, true)
+
+                // Ajax example
+                //                $.ajax().always(function () {
+                //                    simpleLoad($(this), false)
+                //                });
+
+                simpleLoad(btn, false)
+            });
+        });
+
+        function simpleLoad(btn, state) {
+            if (state) {
+                btn.children().addClass('fa-spin');
+                btn.contents().last().replaceWith(" Loading");
+            } else {
+                setTimeout(function () {
+                    btn.children().removeClass('fa-spin');
+                    btn.contents().last().replaceWith(" Refresh");
+                }, 2000);
+            }
+        }
+    </script>
+
+
+{% endblock %}

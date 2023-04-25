@@ -1,0 +1,1575 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block css %}
+    <style>
+
+
+        .comment {
+            display: none;
+            position: relative;
+            width: 575px;
+            height: 700px;
+            margin-left: 50px;
+            margin-top: 516px;
+            top: -25px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 1px 1px 1px 1px rgba(196, 192, 192, 0.3);
+        }
+
+        .comment-2 {
+            height: 160px;
+            margin-left: 20px;
+            margin-right: 20px;
+            border-bottom: 1px solid #d5d7da;
+            border-top: 1px solid #d5d7da;
+            border-collapse: collapse;
+        }
+
+        .comment-2-3 {
+            margin-left: 35px;
+        }
+
+        .comment-2-3 .title {
+            display: block;
+            height: 15px;
+        }
+
+        .comment-2-1 {
+            float: left;
+        {#width: 35px;#} height: 160px;
+        {#margin-left: 10px;#} background-color: #FFFFFF;
+        }
+
+        .comment-2-2 {
+        {#position: relative;#} margin-right: 20px;
+            float: right;
+        }
+
+        .img-1 {
+            margin-top: 10px;
+            width: 120px;
+            height: 120px;
+            background-color: aquamarine;
+        }
+
+        .img-1 img {
+            display: block;
+            width: 120px;
+            height: 120px;
+            background-size: 100% 100%;
+        {#margin-top: px;#}
+        }
+
+        .write-1 {
+            overflow: hidden;
+            width: 220px;
+            height: 150px;
+            margin-left: 163px;
+            margin-top: -135px;
+            margin-left: 149px;
+        }
+
+        .write-1 p {
+            overflow: hidden;
+            display: block;
+            height: 140px;
+            width: 220px;
+            color: rgb(115, 135, 156);
+            font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+
+        .tab_list {
+            width: 400px;
+            height: 50px;
+            margin-top: 25px;
+            margin-left: 120px;
+        }
+
+        .tab_list button {
+            float: left;
+            position: relative;
+            width: 60px;
+            height: 30px;
+            text-align: center;
+            color: #FFF;
+            text-decoration: none;
+            line-height: 30px;
+            font-family: 'Oswald', Helvetica;
+            display: block;
+            margin-left: 20px;
+        }
+
+        {#.tab_list button:before {#}
+        {#    background: #f0f0f0;#}
+        {#    background-image: gradient(linear, 0% 0%, 0% 100%, from(#D0D0D0), to(#f0f0f0));#}
+        {#    border-radius: 5px;#}
+        {#    border-radius: 5px;#}
+        {#    border-radius: 5px;#}
+        {#    position: relative;#}
+        {#    content: "";#}
+        {#    left: -6px;#}
+        {#    right: -6px;#}
+        {#    top: -6px;#}
+        {#    bottom: -10px;#}
+        {#    z-index: -1;#}
+        {#}#}
+
+        .tab_list button:active {
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset;
+            top: 5px;
+        }
+
+        .tab_list button:active:before {
+            top: -11px;
+            bottom: -5px;
+            content: "";
+        }
+
+        .tab_list button {
+            text-shadow: -1px -1px rgba(52, 91, 203);
+            background: rgba(52, 91, 203);
+            border: 1px solid rgba(88 119 204);
+            background-image: -moz-linear-gradient(top, #489cd4, #3e8cba);
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #337794, 0 4px 2px rgba(0, 0, 0, .5);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #3c5ca5, 0 4px 2px rgba(0, 0, 0, .5);
+        }
+
+
+        {#———————————————————————————————————————————————index_2———————————————————————————————————————————————————————————#}
+        /*公共属性*/
+
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="well">
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-sm-4">
+                <h2>超话追踪</h2>
+            </div>
+        </div>
+        {#        <div class="row wrapper border-bottom white-bg page-heading" style="margin-top:7px">#}
+        <div class="row">
+            <!-- 头部 -->
+            {#            <div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);">#}
+            <div class="col-sm-4">
+                <p style="margin-top: 5px;"><b>微博话题排行榜</b></p>
+            </div>
+            <div class="col-sm-8">
+
+            </div>
+            {#            </div>#}
+        </div>
+
+        <div class="row" style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 5px;">
+            <table id="test_table" class="table table-hover">
+                <thead style="display: table; width: calc(100% - 1em);">
+                <tr style="display: table;width: 100%;">
+                    <th scope="col" style="width: 5%;"></th>
+                    <th scope="col" style="width: 5%;">排行</th>
+                    <th scope="col" style="width: 30%;">超话链接</th>
+                    <th scope="col" style="width: 20%;">超话标题</th>
+                    <th scope="col" style="width: 10%;">讨论量</th>
+                    <th scope="col" style="width: 10%;">阅读量</th>
+                </tr>
+                </thead>
+                <!-- 重要：tbody 的style样式是固定高度，使用滚动条。 td的百分比要和上面表头一致 -->
+                <tbody id="test_tbody" style="display: block; height: 400px; overflow-y: scroll;">
+                {% for obj in data_list %}
+                    <tr style="display: table;width: 100%;">
+                    <td class="td1" style="width:5%;"></td>
+                    <td class="td1" style="width:5%;">{{ obj.rank }}</td>
+                    <td class="td2" style="width: 30%;">
+                        <a href="{{ obj.topic_href }}">{{ obj.topic_href }}</a></td>
+                    <td class="td3" style="width: 20%;">{{ obj.topic_title }}</td>
+                    <td class="td4" style="width: 10%;">{{ obj.taolun }}</td>
+                    <td class="td5" style="width: 10%;">{{ obj.read }}</td>
+                {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        {#    ______——————————————————————————————微博排行表格————————————————————————————————————————————————————#}
+
+        {#_________________________________________图片翻转___________________________________________________________________#}
+{#        <template>#}
+{#            <el-carousel :interval="4000" type="card" height="200px">#}
+{#                <el-carousel-item v-for="item in 6" :key="item">#}
+{#                    <h3 class="medium">{{ item }}</h3>#}
+{#                </el-carousel-item>#}
+{#            </el-carousel>#}
+{#        </template>#}
+
+        {#    ______—————————————————————————————下面—两会，土耳其地震，二十大表格————————————————————————————————————————————————————#}
+        <div class="panel panel-default">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <ul class="nav nav-tabs justify-content-end bar_tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#home1" role="tab"
+                               aria-controls="home"
+                               aria-selected="false"><h4><strong>两会</strong></h4></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile1" role="tab"
+                               aria-controls="profile" aria-selected="false"><h4>土耳其地震</h4></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact1"
+                               role="tab"
+                               aria-controls="contact" aria-selected="true"><h4>二十大</h4></a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade" id="home1" role="tabpanel" aria-labelledby="home-tab">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>3.1</th>
+                                    <th>3.2</th>
+                                    <th>3.3</th>
+                                    <th>3.4</th>
+                                    <th>3.5</th>
+                                    <th>3.6</th>
+                                    <th>3.7</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">情感状态</th>
+                                    <td><strong>积极</strong></td>
+                                    {#   加个颜色#}
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">情感指数</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日讨论数</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>3.1</th>
+                                    <th>3.2</th>
+                                    <th>3.3</th>
+                                    <th>3.4</th>
+                                    <th>3.5</th>
+                                    <th>3.6</th>
+                                    <th>3.7</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">情感状态</th>
+                                    <td><strong>积极</strong></td>
+                                    {#   加个颜色#}
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">情感指数</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日讨论数</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade active show" id="contact1" role="tabpanel"
+                             aria-labelledby="contact-tab">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>3.1</th>
+                                    <th>3.2</th>
+                                    <th>3.3</th>
+                                    <th>3.4</th>
+                                    <th>3.5</th>
+                                    <th>3.6</th>
+                                    <th>3.7</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">情感状态</th>
+                                    <td><strong>积极</strong></td>
+                                    {#   加个颜色#}
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">情感指数</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日讨论数</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">今日阅读量</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {#    ______—————————————————————————————上面—两会，土耳其地震，二十大表格————————————————————————————————————————————————————#}
+
+
+        <div>
+            {# ——————————————————————————————————————K_线图 ————————————————————————————————————————————————————————————————————————————#}
+            <div class="panel panel-default">
+                <div class="panel-heading">与置顶话题热度对比</div>
+                <div class="panel-body">
+                    <div id="main1" style="width:100%;height: 400px"></div>
+                </div>
+            </div>
+            {# ——————————————————————————————————————K_线图 ————————————————————————————————————————————————————————————————————————————#}
+            <div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div style="box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="height: 50px">
+                                    <div style="background-color: #9fcdff">
+                                        该话题信息以及趋势展示
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)">
+                            <div class="well">
+                                <div style="width:100%;">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">&nbsp&nbsp&nbsp#两会#</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                        <span><img alt="image" class="img-circle"
+                                                   src="{% static 'img/profile_small.jpg' %}"/></span>
+
+                                            <hr>
+                                            <p>分类:&nbsp&nbsp&nbsp
+                                                社会 </p>
+                                            <hr>
+                                            <p>
+                                                导语:&nbsp&nbsp&nbsp2023年3月，十四届全国人大一次会议和全国政协十四届一次会议在北京召开。</p>
+                                            <hr>
+                                            <p>主持人:&nbsp&nbsp&nbsp央视新闻</p>
+                                            <hr>
+                                            <p>类别</p>
+                                            <hr>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">&nbsp&nbsp&nbsp话题总览</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <img alt="image" class="img-circle"
+                                                 src="{% static 'img/profile_small.jpg' %}"/>
+                                            <div class="data-row">
+                                                <div class="item-col">
+                                                    <div class="num"><span class="scale">184.7</span>
+                                                        <span>亿</span>
+                                                    </div>
+                                                    <div class="des">阅读次数</div>
+                                                </div>
+                                                <div class="item-col">
+                                                    <div class="num"><span class="scale">621.3</span>
+                                                        <span>万</span>
+                                                    </div>
+                                                    <div class="des">讨论次数</div>
+                                                </div>
+                                                <div class="item-col">
+                                                    <div class="num"><span class="scale">58.2</span>
+                                                        <span>万</span>
+                                                    </div>
+                                                    <div class="des">原创人数</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">话题趋势</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <img alt="image" class="img-circle"
+                                                 src="{% static 'img/profile_small.jpg' %}"/>
+                                            <div id="main2" style="width:100%;height: 440px"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">该话题相关事件展示</div>
+                            <div class="panel-body">
+                                <div id="#" style="width:100%;">
+                                    <table id="test_table" class="table table-hover">
+                                        <thead style="display: table; width: calc(100% - 1em);">
+                                        <tr style="display: table;width: 100%;">
+                                            <th scope="col" style="width: 15%;"></th>
+                                            {#                    <th scope="col" style="width: 10%;">排行</th>#}
+                                            <th scope="col" style="width: 45%;">标题</th>
+                                            <th scope="col" style="width: 20%;">讨论次数</th>
+                                            <th scope="col" style="width: 20%;">阅读次数</th>
+                                            {#                                            <th scope="col" style="width: 10%;"></th>#}
+                                        </tr>
+                                        </thead>
+                                        <!-- 重要：tbody 的style样式是固定高度，使用滚动条。 td的百分比要和上面表头一致 -->
+                                        <tbody id="test_tbody"
+                                               style="display: block; height: 400px; overflow-y: scroll;">
+                                        <!-- 测试表格行 -->
+                                        {% for obj_3 in data_list_3 %}
+                                            <tr style="display: table;width: 100%;">
+                                            <td class="td1" style="width: 10%;"></td>
+                                            <td class="td2" style="width:45%;">
+                                                <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+                                                <a href="{{ obj_3.href }}">{{ obj_3.title }}</a></td>
+                                            <td class="td3" style="width: 20%;">{{ obj_3.taolun }}</td>
+                                            <td class="td4" style="width: 20%;">{{ obj_3.read }}</td>
+                                            {#                                            <td class="td5" style="width: 10%;"></td>#}
+                                        {% endfor %}
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+{#                        <div>#}
+{#                            <div class="comment" style="display: block;">#}
+{#                                <div class="comment-2" style="border-top:none;">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.0|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">#}
+{#                                                    {{ title_list.0|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{##}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.1|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">#}
+{#                                                    {{ title_list.1|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.2|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">#}
+{#                                                    {{ title_list.2|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{#                                                <img src={{ hrefs_list.3|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">#}
+{#                                                    {{ title_list.3|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="comment">#}
+{#                                <div class="comment-2" style="border-top: none;padding-top: 40px;">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 " style="height: 90px;"></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 " style="margin-top: -10px;">#}
+{##}
+{#                                                <img src={{ hrefs_list.4|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.4|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{##}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 " style="margin-left: -36px;"></span>#}
+{#                                        <div class="circle " style="margin-left: -40px; "></div>#}
+{#                                        <span class="line2" style="margin-left: -36px;"></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 " style="margin-top: 10px;">#}
+{##}
+{#                                                <img src={{ hrefs_list.5|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.5|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.6|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.6|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.7|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.7|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="comment">#}
+{#                                <div class="comment-2" style="border-top: none;padding-top: 40px;">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 " style="height: 90px;"></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 " style="margin-top: -10px;">#}
+{##}
+{#                                                <img src={{ hrefs_list.8|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.8|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{##}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 " style="margin-left: -36px;"></span>#}
+{#                                        <div class="circle " style="margin-left: -40px; "></div>#}
+{#                                        <span class="line2" style="margin-left: -36px;"></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 " style="margin-top: 10px;">#}
+{##}
+{#                                                <img src={{ hrefs_list.9|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.9|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.10|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.10|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.11|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.11|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="comment">#}
+{#                                <div class="comment-2" style="border-top: none;padding-top: 40px;">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 " style="height: 90px;"></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 " style="margin-top: -10px;">#}
+{##}
+{#                                                <img src={{ hrefs_list.12|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.12|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{##}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 " style="margin-left: -36px;"></span>#}
+{#                                        <div class="circle " style="margin-left: -40px; "></div>#}
+{#                                        <span class="line2" style="margin-left: -36px;"></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 " style="margin-top: 10px;">#}
+{##}
+{#                                                <img src={{ hrefs_list.13|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.13|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.14|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.14|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.15|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.15|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="comment">#}
+{#                                <div class="comment-2" style="border-top: none;padding-top: 40px;">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 " style="height: 90px;"></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 " style="margin-top: -10px;">#}
+{##}
+{#                                                <img src={{ hrefs_list.16|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.16|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{##}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 " style="margin-left: -36px;"></span>#}
+{#                                        <div class="circle " style="margin-left: -40px; "></div>#}
+{#                                        <span class="line2" style="margin-left: -36px;"></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 " style="margin-top: 10px;">#}
+{##}
+{#                                                <img src={{ hrefs_list.17|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.17|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.18|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.18|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                                <div class="comment-2">#}
+{#                                    <div class="comment-2-1 ">#}
+{#                                        <span class="line1 "></span>#}
+{#                                        <div class="circle "></div>#}
+{#                                        <span class="line2 "></span></div>#}
+{##}
+{#                                    <div class="comment-2-2 ">#}
+{#                                        <div class="comment-2-3 ">#}
+{#                                            <div class="img-1 ">#}
+{##}
+{#                                                <img src={{ hrefs_list.19|safe }}>#}
+{#                                            </div>#}
+{#                                            <div class="write-1">#}
+{#                                                <p class="excerpt ">{{ title_list.19|safe }}#}
+{#                                                </p>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+{##}
+{#                            <div class="tab_list">#}
+{#                                <button class="current">1</button>#}
+{#                                <button>2</button>#}
+{#                                <button>3</button>#}
+{#                                <button>4</button>#}
+{#                                <button>5</button>#}
+{#                            </div>#}
+{#                        </div>#}
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">参与该超话用户活跃时间段</div>
+                        <div class="panel-body">
+                            <div id="m2" style="width:100%;height: 800px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">该超话概要浏览</div>
+                        <div class="panel-body">
+                            <div id="m3" style="width:100%;height: 800px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12"></div>
+            <div class="footer">
+                <div>
+                    <strong>面向微博超话的情感检测系统</strong>
+                    <!--——————————————————————    最底下的那一行字——————————————————————————    -->
+                </div>
+            </div>
+        </div>
+        {#            </div>#}
+    </div>
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    <script src="{% static '/js/echarts-wordcloud.js' %}"></script>
+    <script type="text/javascript">
+
+        var ROOT_PATH = 'https://echarts.apache.org/examples';
+
+        var chartDom = document.getElementById('main1');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        $.get(
+            ROOT_PATH + '/data/asset/data/life-expectancy-table.json',
+            function (_rawData) {
+                run(_rawData);
+            }
+        );
+
+        function run(_rawData) {
+            // var countries = ['Australia', 'Canada', 'China', 'Cuba', 'Finland', 'France', 'Germany', 'Iceland', 'India', 'Japan', 'North Korea', 'South Korea', 'New Zealand', 'Norway', 'Poland', 'Russia', 'Turkey', 'United Kingdom', 'United States'];
+            const countries = [
+                'Finland',
+                'France',
+                'Germany',
+                'Iceland',
+                'Norway',
+                'Poland',
+                'Russia',
+                'United Kingdom'
+            ];
+            const datasetWithFilters = [];
+            const seriesList = [];
+            echarts.util.each(countries, function (country) {
+                var datasetId = 'dataset_' + country;
+                datasetWithFilters.push({
+                    id: datasetId,
+                    fromDatasetId: 'dataset_raw',
+                    transform: {
+                        type: 'filter',
+                        config: {
+                            and: [
+                                {dimension: 'Year', gte: 1950},
+                                {dimension: 'Country', '=': country}
+                            ]
+                        }
+                    }
+                });
+                seriesList.push({
+                    type: 'line',
+                    datasetId: datasetId,
+                    showSymbol: false,
+                    name: country,
+                    endLabel: {
+                        show: true,
+                        formatter: function (params) {
+                            return params.value[3] + ': ' + params.value[0];
+                        }
+                    },
+                    labelLayout: {
+                        moveOverlap: 'shiftY'
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    encode: {
+                        x: 'Year',
+                        y: 'Income',
+                        label: ['Country', 'Income'],
+                        itemName: 'Year',
+                        tooltip: ['Income']
+                    }
+                });
+            });
+            option = {
+                animationDuration: 10000,
+                dataset: [
+                    {
+                        id: 'dataset_raw',
+                        source: _rawData
+                    },
+                    ...datasetWithFilters
+                ],
+                title: {
+                    text: 'Income of Germany and France since 1950'
+                },
+                tooltip: {
+                    order: 'valueDesc',
+                    trigger: 'axis'
+                },
+                xAxis: {
+                    type: 'category',
+                    nameLocation: 'middle'
+                },
+                yAxis: {
+                    name: 'Income'
+                },
+                grid: {
+                    right: 140
+                },
+                series: seriesList
+            };
+            myChart.setOption(option);
+        }
+
+        option && myChart.setOption(option);
+
+
+        var chartDom = document.getElementById('m2');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        const builderJson = {
+            all: 10887,
+            charts: {
+                map: 3237,
+                lines: 2164,
+                bar: 7561,
+                line: 7778,
+                pie: 7355,
+                scatter: 2405,
+                candlestick: 1842,
+                radar: 2090,
+                heatmap: 1762,
+                treemap: 1593,
+                graph: 2060,
+                boxplot: 1537,
+                parallel: 1908,
+                gauge: 2107,
+                funnel: 1692,
+                sankey: 1568
+            },
+            components: {
+                geo: 2788,
+                title: 9575,
+                legend: 9400,
+                tooltip: 9466,
+                grid: 9266,
+                markPoint: 3419,
+                markLine: 2984,
+                timeline: 2739,
+                dataZoom: 2744,
+                visualMap: 2466,
+                toolbox: 3034,
+                polar: 1945
+            },
+            ie: 9743
+        };
+        const downloadJson = {
+            'echarts.min.js': 17365,
+            'echarts.simple.min.js': 4079,
+            'echarts.common.min.js': 6929,
+            'echarts.js': 14890
+        };
+        const themeJson = {
+            'dark.js': 1594,
+            'infographic.js': 925,
+            'shine.js': 1608,
+            'roma.js': 721,
+            'macarons.js': 2179,
+            'vintage.js': 1982
+        };
+        const waterMarkText = 'ECHARTS';
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.height = 100;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.globalAlpha = 0.08;
+        ctx.font = '20px Microsoft Yahei';
+        ctx.translate(50, 50);
+        ctx.rotate(-Math.PI / 4);
+        ctx.fillText(waterMarkText, 0, 0);
+        option = {
+            backgroundColor: {
+                type: 'pattern',
+                image: canvas,
+                repeat: 'repeat'
+            },
+            tooltip: {},
+            title: [
+                {
+                    text: '在线构建',
+                    subtext: '总计 ' + builderJson.all,
+                    left: '25%',
+                    textAlign: 'center'
+                },
+                {
+                    text: '该话题用户情感占比',
+                    subtext:
+                        '总计 ' +
+                        Object.keys(downloadJson).reduce(function (all, key) {
+                            return all + downloadJson[key];
+                        }, 0),
+                    left: '75%',
+                    textAlign: 'center'
+                },
+                {
+                    text: '用户性别占比',
+                    subtext:
+                        '总计 ' +
+                        Object.keys(themeJson).reduce(function (all, key) {
+                            return all + themeJson[key];
+                        }, 0),
+                    left: '75%',
+                    top: '50%',
+                    textAlign: 'center'
+                }
+            ],
+            grid: [
+                {
+                    top: 50,
+                    width: '50%',
+                    bottom: '45%',
+                    left: 10,
+                    containLabel: true
+                },
+                {
+                    top: '55%',
+                    width: '50%',
+                    bottom: 0,
+                    left: 10,
+                    containLabel: true
+                }
+            ],
+            xAxis: [
+                {
+                    type: 'value',
+                    max: builderJson.all,
+                    splitLine: {
+                        show: false
+                    }
+                },
+                {
+                    type: 'value',
+                    max: builderJson.all,
+                    gridIndex: 1,
+                    splitLine: {
+                        show: false
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'category',
+                    data: Object.keys(builderJson.charts),
+                    axisLabel: {
+                        interval: 0,
+                        rotate: 30
+                    },
+                    splitLine: {
+                        show: false
+                    }
+                },
+                {
+                    gridIndex: 1,
+                    type: 'category',
+                    data: Object.keys(builderJson.components),
+                    axisLabel: {
+                        interval: 0,
+                        rotate: 30
+                    },
+                    splitLine: {
+                        show: false
+                    }
+                }
+            ],
+            series: [
+                {
+                    type: 'bar',
+                    stack: 'chart',
+                    z: 3,
+                    label: {
+                        position: 'right',
+                        show: true
+                    },
+                    data: Object.keys(builderJson.charts).map(function (key) {
+                        return builderJson.charts[key];
+                    })
+                },
+                {
+                    type: 'bar',
+                    stack: 'chart',
+                    silent: true,
+                    itemStyle: {
+                        color: '#eee'
+                    },
+                    data: Object.keys(builderJson.charts).map(function (key) {
+                        return builderJson.all - builderJson.charts[key];
+                    })
+                },
+                {
+                    type: 'bar',
+                    stack: 'component',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    z: 3,
+                    label: {
+                        position: 'right',
+                        show: true
+                    },
+                    data: Object.keys(builderJson.components).map(function (key) {
+                        return builderJson.components[key];
+                    })
+                },
+                {
+                    type: 'bar',
+                    stack: 'component',
+                    silent: true,
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    itemStyle: {
+                        color: '#eee'
+                    },
+                    data: Object.keys(builderJson.components).map(function (key) {
+                        return builderJson.all - builderJson.components[key];
+                    })
+                },
+                {
+                    type: 'pie',
+                    radius: [0, '30%'],
+                    center: ['75%', '25%'],
+                    data: Object.keys(downloadJson).map(function (key) {
+                        return {
+                            name: key.replace('.js', ''),
+                            value: downloadJson[key]
+                        };
+                    })
+                },
+                {
+                    type: 'pie',
+                    radius: [0, '30%'],
+                    center: ['75%', '75%'],
+                    data: Object.keys(themeJson).map(function (key) {
+                        return {
+                            name: key.replace('.js', ''),
+                            value: themeJson[key]
+                        };
+                    })
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+        var chartDom = document.getElementById('main2');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        // prettier-ignore
+        const data = [["00：00", 932], ["01:00", 934], ["02:00", 652], ["03:00", 736], ["04:00", 560], ["05:00", 680], ["06:00", 880], ["07:00", 804], ["08:00", 788], ["09:00", 876], ["10:00", 1032], ["11:00", 1160], ["12:00", 736], ["13:00", 748], ["14:00", 728], ["15:00", 800], ["16:00", 1110], ["17:00", 774], ["18:00", 1002], ["19:00", 4938], ["20:00", 1058], ["21:00", 858], ["22:00", 810], ["23:00", 836]];
+        const dateList = data.map(function (item) {
+            return item[0];
+        });
+        const valueList = data.map(function (item) {
+            return item[1];
+        });
+        option = {
+            // Make gradient line here
+            visualMap: [
+                {
+                    show: false,
+                    type: 'continuous',
+                    seriesIndex: 0,
+                    min: 0,
+                    max: 400
+                },
+                {
+                    show: false,
+                    type: 'continuous',
+                    seriesIndex: 1,
+                    dimension: 0,
+                    min: 0,
+                    max: dateList.length - 1
+                }
+            ],
+            title: [
+                {
+                    left: 'center',
+                    text: '阅读趋势'
+                },
+                {
+                    top: '55%',
+                    left: 'center',
+                    text: '讨论趋势'
+                }
+            ],
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: [
+                {
+                    data: dateList
+                },
+                {
+                    data: dateList,
+                    gridIndex: 1
+                }
+            ],
+            yAxis: [
+                {},
+                {
+                    gridIndex: 1
+                }
+            ],
+            grid: [
+                {
+                    bottom: '60%'
+                },
+                {
+                    top: '60%'
+                }
+            ],
+            series: [
+                {
+                    type: 'line',
+                    showSymbol: false,
+                    data: valueList
+                },
+                {
+                    type: 'line',
+                    showSymbol: false,
+                    data: valueList,
+                    xAxisIndex: 1,
+                    yAxisIndex: 1
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+
+    </script>
+
+    <script>
+        var tab_list = document.querySelector('.tab_list');
+        var btns = tab_list.querySelectorAll('button');
+        var comment = document.querySelectorAll('.comment');
+        var tab_con = document.querySelectorAll('.tab_con');
+
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].setAttribute('index', i);
+            btns[i].onclick = function () {
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].className = '';
+                }
+                this.className = 'current';
+
+                var index = this.getAttribute('index');
+                for (var i = 0; i < comment.length; i++) {
+                    comment[i].style.display = 'none';
+
+                }
+                comment[index].style.display = 'block';
+
+            }
+        }
+    </script>
+{% endblock %}

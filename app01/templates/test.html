@@ -1,0 +1,228 @@
+
+
+{% extends "new_layout_2.html" %}
+{% load static %}
+{% block css %}
+
+    <link href="../static/css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
+    <link href="../static/font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
+
+    <!-- Data Tables -->
+    <link href="../static/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+    <link href="../static/css/animate.css" rel="stylesheet">
+    <link href="../static/css/style.css?v=2.2.0" rel="stylesheet">
+
+{% endblock %}
+{##}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">各类型文本评论的情感分析</div>
+                <div class="panel-body">
+                    <div class="panel-heading">
+                        <div class="panel-options">
+                            <ul class="nav nav-tabs">
+                                <li><a data-toggle="tab" href="trace.html#tab-11">两会</a>
+                                </li>
+                                <li class=""><a data-toggle="tab" href="trace.html#tab-12">土耳其</a>
+                                </li>
+                                <li class=""><a data-toggle="tab" href="trace.html#tab-13">二十大</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div id="tab-11" class="tab-pane active">
+                                <table class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <tr>
+                                        <th>标题</th>
+                                        <th>讨论次数</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for obj in data_list_1 %}
+                                        <tr>
+                                        <td style="font-size:25px;">
+                                            {{ obj.author }}
+                                            <br><a
+                                                style="font-size:25px;color:#808080;text-decoration:none;">{{ obj.content }}</a><br>
+                                            <span style="font-size:17px">&nbsp&nbsp&nbsp&nbsp&nbsp转发:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.share_num }}</a>&nbsp&nbsp&nbsp评论:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.pingllun_num }}</a>&nbsp&nbsp&nbsp点赞:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.dianzan_num }}</a>&nbsp&nbsp&nbsp发帖时间:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.time }}</a></span>
+                                        </td>
+                                        <td style="width: 10%">
+                                            <a href="{{ obj.href }}">查看原文>>><br><br><a
+                                                    style="font-size:30px;color:#2E8B57;text-decoration:none;">{{ obj.key_s }}</a></a>
+                                        </td>
+                                    {% endfor %}
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="tab-12" class="tab-pane">
+                                <table class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <tr>
+                                        <th>标题</th>
+                                        <th>讨论次数</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for obj in data_list_2 %}
+                                        <tr>
+                                        <td style="font-size:25px;">
+                                            {{ obj.author }}
+                                            <br>
+                                            <a style="font-size:25px;color:#808080;text-decoration:none;">{{ obj.content }}</a>
+                                            <br>
+                                            <span style="font-size:17px">&nbsp&nbsp&nbsp&nbsp&nbsp转发:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.share_num }}</a>&nbsp&nbsp&nbsp评论:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.pingllun_num }}</a>&nbsp&nbsp&nbsp点赞:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.dianzan_num }}
+                                            </a>&nbsp&nbsp&nbsp发帖时间:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.time }}</a></span>
+                                        </td>
+                                        <td>
+                                            <a href="{{ obj.href }}">查看原文>>><br><br><a
+                                                    style="font-size:30px;color:#2E8B57;text-decoration:none;">{{ obj.key_s }}</a></a>
+                                        </td>
+                                    {% endfor %}
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="tab-13" class="tab-pane">
+                                <table class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <tr>
+                                        <th>标题</th>
+                                        <th>讨论次数</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for obj in data_list_3 %}
+                                        <tr>
+                                        <td style="font-size:25px;">
+                                            {{ obj.author }}
+                                            <br>
+                                            <a style="font-size:25px;color:#808080;text-decoration:none;">{{ obj.content }}</a>
+                                            <br>
+                                            <span style="font-size:17px">&nbsp&nbsp&nbsp&nbsp&nbsp转发:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.share_num }}</a>&nbsp&nbsp&nbsp评论:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.pingllun_num }}</a>&nbsp&nbsp&nbsp点赞:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.dianzan_num }}</a>&nbsp&nbsp&nbsp发帖时间:
+                                            <a style="text-decoration:none;">&nbsp{{ obj.time }}</a></span>
+                                        <td>
+                                            <a href="{{ obj.href }}">查看原文>>><br><br><a
+                                                    style="font-size:30px;color:#2E8B57;text-decoration:none;">{{ obj.key_s }}</a></a>
+                                        </td>
+                                    {% endfor %}
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+
+    <script src="{% static '/js/echarts-wordcloud.js' %}"></script>
+    <!-- Mainly scripts -->
+    <script src="../static/js/jquery-2.1.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js?v=3.4.0"></script>
+    <script src="../static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <script src="../static/js/plugins/jeditable/jquery.jeditable.js"></script>
+
+    <!-- Data Tables -->
+    <script src="../static/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../static/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="../static/js/hplus.js?v=2.2.0"></script>
+    <script src="../static/js/plugins/pace/pace.min.js"></script>
+
+    {#    <script src="../static/js/plugins/echarts/echarts-all.js"></script>#}
+
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(function () {
+
+
+            var chartDom = document.getElementById('main指数xian');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                title: {
+                    text: '近一周每日——情感指数追踪'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['两会', '土耳其地震', '二十大']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['4.8', '4.9', '4.10', '4.11', '4.12', '4.13', '4.14']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name: '两会',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [0.9326, 0.9268, 0.8457, 0.9471, 0.9192, 0.8951, 0.9392]
+                    },
+                    {
+                        name: '土耳其地震',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [0.3436, 0.1432, 0.2432, 0.3344, 0.1432, 0.2342, 0.1422]
+                    },
+                    {
+                        name: '二十大',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [0.9826, 0.9468, 0.9157, 0.8471, 0.8192, 0.9458, 0.9590]
+                    }
+                ]
+            };
+
+            option && myChart.setOption(option);
+
+        });
+
+
+    </script>
+{% endblock %}
+
